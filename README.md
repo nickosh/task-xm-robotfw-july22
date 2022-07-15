@@ -10,7 +10,7 @@ Python packages used: Robot Framework 5.0.1, FastAPI 0.78.0, Uvicorn 0.18.2.
 
 To start please install a fittable Python version and install packages from requirements.txt to your environment.
 
-Then you can start testing process with command like this: `robot \*.suite.robot`
+Then you can start testing process with command like this: `robot *.suite.robot`
 
 ---
 
