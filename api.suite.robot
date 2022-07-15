@@ -19,7 +19,7 @@ ${MOCK_DELAY}       0
 Valid responce from people end-point
     [Documentation]    Lest test the valid responce from 'people' endpoint
     ${response}=    GET    http://${MOCK_IP}:${MOCK_PORT}/people/12
-    Log To Console    ${response.json()}
+    Log    ${response.json()}    console=True
     Status Should Be    OK    ${response}
 
     Should Be Equal As Strings    ${response.reason}    OK
@@ -28,7 +28,7 @@ Valid responce from people end-point
 Valid responce from planets end-point
     [Documentation]    Lest test the valid responce from 'planets' endpoint
     ${response}=    GET    http://${MOCK_IP}:${MOCK_PORT}/planets/38
-    Log To Console    ${response.json()}
+    Log    ${response.json()}    console=True
     Status Should Be    OK    ${response}
 
     Should Be Equal As Strings    ${response.reason}    OK
@@ -37,7 +37,7 @@ Valid responce from planets end-point
 Valid responce from starships end-point
     [Documentation]    Lest test the valid responce from 'starships' endpoint
     ${response}=    GET    http://${MOCK_IP}:${MOCK_PORT}/starships/100
-    Log To Console    ${response.json()}
+    Log    ${response.json()}    console=True
     Status Should Be    OK    ${response}
 
     Should Be Equal As Strings    ${response.reason}    OK
@@ -46,7 +46,7 @@ Valid responce from starships end-point
 Test people end-point with wrong ID
     [Documentation]    Lest test the 'people' endpoint with invalid ID
     ${response}=    GET    http://${MOCK_IP}:${MOCK_PORT}/people/121    expected_status=404
-    Log To Console    ${response.json()}
+    Log    ${response.json()}    console=True
     Status Should Be    404    ${response}
 
     Should Be Equal As Strings    ${response.reason}    Not Found
@@ -55,7 +55,7 @@ Test people end-point with wrong ID
 Test planets end-point with wrong ID
     [Documentation]    Lest test the 'planets' endpoint with invalid ID
     ${response}=    GET    http://${MOCK_IP}:${MOCK_PORT}/planets/9999    expected_status=404
-    Log To Console    ${response.json()}
+    Log    ${response.json()}    console=True
     Status Should Be    404    ${response}
 
     Should Be Equal As Strings    ${response.reason}    Not Found
@@ -64,7 +64,7 @@ Test planets end-point with wrong ID
 Test starships end-point with wrong ID
     [Documentation]    Lest test the 'starships' endpoint with invalid ID
     ${response}=    GET    http://${MOCK_IP}:${MOCK_PORT}/starships/-5    expected_status=404
-    Log To Console    ${response.json()}
+    Log    ${response.json()}    console=True
     Status Should Be    404    ${response}
 
     Should Be Equal As Strings    ${response.reason}    Not Found
@@ -73,7 +73,7 @@ Test starships end-point with wrong ID
 Test people end-point with unexpected ID
     [Documentation]    Lest test the 'people' endpoint with unexpected ID
     ${response}=    GET    http://${MOCK_IP}:${MOCK_PORT}/people/abc    expected_status=422
-    Log To Console    ${response.json()}
+    Log    ${response.json()}    console=True
     Status Should Be    422    ${response}
 
     Should Be Equal As Strings    ${response.reason}    Unprocessable Entity
@@ -83,7 +83,7 @@ Test people end-point with unexpected ID
 Test planets end-point with unexpected ID
     [Documentation]    Lest test the 'planets' endpoint with unexpected ID
     ${response}=    GET    http://${MOCK_IP}:${MOCK_PORT}/planets/@#$%    expected_status=422
-    Log To Console    ${response.json()}
+    Log    ${response.json()}    console=True
     Status Should Be    422    ${response}
 
     Should Be Equal As Strings    ${response.reason}    Unprocessable Entity
@@ -93,7 +93,7 @@ Test planets end-point with unexpected ID
 Test starships end-point with unexpected ID
     [Documentation]    Lest test the 'starships' endpoint with unexpected ID
     ${response}=    GET    http://${MOCK_IP}:${MOCK_PORT}/starships/-1-    expected_status=422
-    Log To Console    ${response.json()}
+    Log    ${response.json()}    console=True
     Status Should Be    422    ${response}
 
     Should Be Equal As Strings    ${response.reason}    Unprocessable Entity
