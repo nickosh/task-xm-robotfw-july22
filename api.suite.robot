@@ -17,7 +17,7 @@ ${MOCK_DELAY}       0
 
 *** Test Cases ***
 Valid responce from people end-point
-    [Documentation]    Lest test the valid responce from 'people' endpoint
+    [Documentation]    Lets test the valid responce from 'people' endpoint
     ${response}=    GET    http://${MOCK_IP}:${MOCK_PORT}/people/12
     Log    ${response.json()}    console=True
     Status Should Be    OK    ${response}
@@ -26,7 +26,7 @@ Valid responce from people end-point
     Dictionary Should Contain Value    ${response.json()}    Hi there! Your human ID: 12 Delay: 0
 
 Valid responce from planets end-point
-    [Documentation]    Lest test the valid responce from 'planets' endpoint
+    [Documentation]    Lets test the valid responce from 'planets' endpoint
     ${response}=    GET    http://${MOCK_IP}:${MOCK_PORT}/planets/38
     Log    ${response.json()}    console=True
     Status Should Be    OK    ${response}
@@ -35,7 +35,7 @@ Valid responce from planets end-point
     Dictionary Should Contain Value    ${response.json()}    Hi there! Your planet ID: 38 Delay: 0
 
 Valid responce from starships end-point
-    [Documentation]    Lest test the valid responce from 'starships' endpoint
+    [Documentation]    Lets test the valid responce from 'starships' endpoint
     ${response}=    GET    http://${MOCK_IP}:${MOCK_PORT}/starships/100
     Log    ${response.json()}    console=True
     Status Should Be    OK    ${response}
@@ -44,7 +44,7 @@ Valid responce from starships end-point
     Dictionary Should Contain Value    ${response.json()}    Hi there! Your starship ID: 100 Delay: 0
 
 Test people end-point with wrong ID
-    [Documentation]    Lest test the 'people' endpoint with invalid ID
+    [Documentation]    Lets test the 'people' endpoint with invalid ID
     ${response}=    GET    http://${MOCK_IP}:${MOCK_PORT}/people/121    expected_status=404
     Log    ${response.json()}    console=True
     Status Should Be    404    ${response}
@@ -53,7 +53,7 @@ Test people end-point with wrong ID
     Dictionary Should Contain Value    ${response.json()}    Item with ID 121 is not found
 
 Test planets end-point with wrong ID
-    [Documentation]    Lest test the 'planets' endpoint with invalid ID
+    [Documentation]    Lets test the 'planets' endpoint with invalid ID
     ${response}=    GET    http://${MOCK_IP}:${MOCK_PORT}/planets/9999    expected_status=404
     Log    ${response.json()}    console=True
     Status Should Be    404    ${response}
@@ -62,7 +62,7 @@ Test planets end-point with wrong ID
     Dictionary Should Contain Value    ${response.json()}    Item with ID 9999 is not found
 
 Test starships end-point with wrong ID
-    [Documentation]    Lest test the 'starships' endpoint with invalid ID
+    [Documentation]    Lets test the 'starships' endpoint with invalid ID
     ${response}=    GET    http://${MOCK_IP}:${MOCK_PORT}/starships/-5    expected_status=404
     Log    ${response.json()}    console=True
     Status Should Be    404    ${response}
@@ -71,7 +71,7 @@ Test starships end-point with wrong ID
     Dictionary Should Contain Value    ${response.json()}    Item with ID -5 is not found
 
 Test people end-point with unexpected ID
-    [Documentation]    Lest test the 'people' endpoint with unexpected ID
+    [Documentation]    Lets test the 'people' endpoint with unexpected ID
     ${response}=    GET    http://${MOCK_IP}:${MOCK_PORT}/people/abc    expected_status=422
     Log    ${response.json()}    console=True
     Status Should Be    422    ${response}
@@ -81,7 +81,7 @@ Test people end-point with unexpected ID
     Should Contain    ${msg}    value is not a valid integer
 
 Test planets end-point with unexpected ID
-    [Documentation]    Lest test the 'planets' endpoint with unexpected ID
+    [Documentation]    Lets test the 'planets' endpoint with unexpected ID
     ${response}=    GET    http://${MOCK_IP}:${MOCK_PORT}/planets/@#$%    expected_status=422
     Log    ${response.json()}    console=True
     Status Should Be    422    ${response}
@@ -91,7 +91,7 @@ Test planets end-point with unexpected ID
     Should Contain    ${msg}    value is not a valid integer
 
 Test starships end-point with unexpected ID
-    [Documentation]    Lest test the 'starships' endpoint with unexpected ID
+    [Documentation]    Lets test the 'starships' endpoint with unexpected ID
     ${response}=    GET    http://${MOCK_IP}:${MOCK_PORT}/starships/-1-    expected_status=422
     Log    ${response.json()}    console=True
     Status Should Be    422    ${response}

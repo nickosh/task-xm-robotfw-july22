@@ -17,7 +17,7 @@ ${MOCK_DELAY}       1
 
 *** Test Cases ***
 Performance test of people end-point
-    [Documentation]    Lest test the 'people' endpoint performance with random delay on server side.
+    [Documentation]    Lets test the 'people' endpoint performance with random delay on server side.
     [Setup]    Create Session    perf    http://${MOCK_IP}:${MOCK_PORT}
     ${resp_time_dict}=    Create List
     FOR    ${index}    IN RANGE    50
