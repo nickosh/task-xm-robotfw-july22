@@ -1,2 +1,2 @@
-flake8
-black
+flake8~=4.0.1
+black~=22.6.0
