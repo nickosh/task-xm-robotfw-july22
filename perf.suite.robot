@@ -20,7 +20,7 @@ Performance test of people end-point
     [Documentation]    Lest test the 'people' endpoint performance with random delay on server side.
     [Setup]    Create Session    perf    http://${MOCK_IP}:${MOCK_PORT}
     ${resp_time_dict}=    Create List
-    FOR    ${index}    IN RANGE    3
+    FOR    ${index}    IN RANGE    50
         ${session_exist}=    Session Exists    perf
         IF    not ${session_exist}
             Fail    ERROR: Perf session unexpectedly ends!
